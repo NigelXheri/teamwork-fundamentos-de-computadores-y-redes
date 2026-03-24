@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+extern "C" bool IsValidAssembly(int a, int b, int c);
+
 // ID used: 318641
 
 void ControlWithStrings() {
@@ -21,21 +23,24 @@ void ControlWithStrings() {
     //Second string
     printf("Enter first string: ");
     scanf("%19s", str2);
-    
+
     int len = strlen(str2);
 
-    
+
     int ID0 = 3;  // ID[0]
     int ID2 = 8;  // ID[2]
-    
+
     if (len < 12 || str2[ID2] != str2[ID0]) {
         printf("There was some failure\n");
         exit(0);
     }
 }
 
-int main() {
+
+
+int main()
+{
     ControlWithStrings();
     printf("ControlWithStrings passed!\n");
-    return 0;
+	return 0;
 }
