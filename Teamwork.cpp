@@ -1,6 +1,6 @@
-#include <bitset>
 #include <cstdint>
 #include <iostream>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,19 +42,15 @@ void ControlWithStrings() {
 
 void BitBasedAccess() {
 
-    unsigned int a, b;
+    unsigned int a, b, check1, check2, check3a, check3b, power;
+    unsigned short ID0 = 3, ID1 = 1, ID3 = 6, ID4 = 4, ID5 = 1;
 
     cout << "Give 2 unsigned integers:" << endl;
 
     cin >> a;
     cin >> b;
 
-    unsigned short ID1 = 1, ID3 = 6, ID4 = 4, ID5 = 1;
-
-    bitset<32> bits_a(a);
-    bitset<32> bits_b(b);
-
-    int lower, higher;
+    unsigned int lower, higher;
 
     if (ID5 > ID3) {
         lower = ID3;
@@ -64,29 +60,30 @@ void BitBasedAccess() {
         higher = ID3;
     }
 
-    int j = 0;
+    power = (pow(2, higher - lower + 1) - 1);
+    check1 = b >> lower & power;
 
-    bitset<10> check(0);
-    for (int i = lower; i <= higher; i++) {
-        check[j] = bits_b[i];
-        j++;
-    }
-
-    if (check.any()) {
+    if (check1 != 0) {
         cout << "There was some failure" << endl;
         exit(1);
     }
-    if (bits_a[0] != 0) {
+
+    check2 = a >> ID0 & 1;
+
+    if (check2 != 0) {
         cout << "Halt!" << endl;
         exit(1);
     }
 
-    if (bits_a[ID4] != bits_b[ID1]) {
+    check3a = a >> ID4 & 1;
+    check3b = b >> ID1 & 1;
+
+    if (check3a != check3b) {
         cout << "Intruder detected" << endl;
         exit(1);
     }
 
-    cout << "Access granted";
+    cout << "Access granted" << endl;
     return;
 }
 
