@@ -83,7 +83,6 @@ void BitBasedAccess() {
         exit(1);
     }
 
-    cout << "Access granted" << endl;
     return;
 }
 
@@ -100,10 +99,8 @@ void CheckArrayBit() {
         i8arr[i] = (int8_t)tmp;
     }
 
-    if (!(i8arr[0] ^ i8arr[1] ^ i8arr[2] ^ corr)) {
-        cout << "Access granted";
+    if (!(i8arr[0] ^ i8arr[1] ^ i8arr[2] ^ corr))
         return;
-    }
 
     cout << "These are not the droids you are looking for";
     exit(1);
@@ -113,5 +110,6 @@ int main() {
     ControlWithStrings();
     BitBasedAccess();
     CheckArrayBit();
+    cout << "Access granted" << endl;
     return 0;
 }
