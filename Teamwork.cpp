@@ -102,7 +102,7 @@ void CheckArrayBit() {
     if (!(i8arr[0] ^ i8arr[1] ^ i8arr[2] ^ corr))
         return;
 
-    cout << "These are not the droids you are looking for";
+    cout << "These are not the droids you are looking for" << endl;
     exit(1);
 }
 
