@@ -23,7 +23,7 @@ mov ecx, eax
 mov eax, [ebp + 16]
 and eax, 01FFh
 cmp ecx, eax
-ja _exit
+jae _exit
 pop ebp
 mov eax, 1
 ret
