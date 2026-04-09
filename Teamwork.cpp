@@ -40,16 +40,6 @@ void ControlWithStrings() {
     }
 }
 
-void AsmZeroBit() {
-    int a, b, c;
-    cout << "Give 3 integers:" << endl;
-    cin >> a >> b >> c;
-    if (!IsValidAssembly(a, b, c)) {
-        cout << "Access denied" << endl;
-        exit(1);
-    }
-}
-
 void BitBasedAccess() {
 
     unsigned int a, b, check1, check2, check3a, check3b, power;
@@ -96,6 +86,18 @@ void BitBasedAccess() {
     return;
 }
 
+void AsmZeroBit() {
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    cout << "Give 3 integers:" << endl;
+    cin >> a >> b >> c;
+    if (!IsValidAssembly(a, b, c)) {
+        cout << "Access denied" << endl;
+        exit(1);
+    }
+}
+
 void CheckArrayBit() {
 
     int8_t i8arr[3];
@@ -118,8 +120,8 @@ void CheckArrayBit() {
 
 int main() {
     ControlWithStrings();
-    AsmZeroBit();
     BitBasedAccess();
+    AsmZeroBit();
     CheckArrayBit();
     cout << "Access granted" << endl;
     return 0;
